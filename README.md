@@ -6,6 +6,7 @@ A lightweight Bash-based Model Context Protocol (MCP) server for sending desktop
 
 - Linux system with notification support
 - `notify-send` command (usually provided by `libnotify` package)
+- `jq` tool 
 
 ### Installing notify-send
 
