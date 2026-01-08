@@ -1,13 +1,13 @@
 # notify-mcp
 
-A lightweight Bash-based Model Context Protocol (MCP) server for sending desktop notifications via `notify-send`. This zero-dependency server enables AI assistants like Claude, Cursor, and VS Code to send system notifications directly to your Linux desktop.
+A lightweight Bash-based Model Context Protocol (MCP) server for sending desktop notifications via `notify-send`. This zero-dependency server enables AI assistants like Claude, Cursor, and VS Code to send system notifications directly to your Linux desktop and MacOS.
 
 ![Watch the example](./screen.gif)
 
 ## Prerequisites
 
-- Linux system with notification support
-- `notify-send` command (usually provided by `libnotify` package)
+- Linux system with notification support or MacOS
+- `notify-send` command for linux (usually provided by `libnotify` package)
 - `jq` tool
 
 ### Installing notify-send
