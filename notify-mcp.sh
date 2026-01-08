@@ -5,6 +5,8 @@ set -euo pipefail
 # Set DBUS_SESSION_BUS_ADDRESS if not set
 export DBUS_SESSION_BUS_ADDRESS="${DBUS_SESSION_BUS_ADDRESS:-unix:path=/run/user/$(id -u)/bus}"
 
+OS="$(uname -s)"
+
 while read -r line; do
     # Parse JSON input using jq
     method=$(echo "$line" | jq -r '.method' 2>/dev/null)
@@ -28,7 +30,11 @@ while read -r line; do
         tool_method=$(echo "$line" | jq -r '.params.name' 2>/dev/null)
         title=$(echo "$line" | jq -r '.params.arguments.title' 2>/dev/null)
         message=$(echo "$line" | jq -r '.params.arguments.message' 2>/dev/null)
-        notify-send "$title" "$message"
+        if [[ "$OS" == "Darwin" ]]; then
+          osascript -e "display notification \"$message\" with title \"$title\""
+        elif [[ "$OS" == "Linux" ]]; then
+          notify-send "$title" "$message"
+        fi
         echo '{"jsonrpc":"2.0","id":'"$id"',"result":{"content":[],"isError":false}}'
     
     else
