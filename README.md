@@ -223,5 +223,5 @@ This will list all connected MCP servers, including `notify`.
 For testing or advanced use cases, you can interact with the MCP server directly via stdio:
 
 ```bash
-'{"jsonrpc":"2.0","id":"2","method":"show","title":"Hello","message":"World"}' | ./notify-mcp.sh
+echo '{"jsonrpc":"2.0","id":"2","method":"tools/call","params": {"arguments":{"title":"Hello","message":"World"}}}' | ./notify-mcp.sh
 ```
