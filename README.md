@@ -197,6 +197,9 @@ The Gemini CLI supports MCP servers through its settings configuration file.
       "command": "/home/username/notify-mcp/notify-mcp.sh",
       "args": []
     }
+  },
+  "mcp": {
+    "allowed": ["notify"]
   }
 }
 ```
